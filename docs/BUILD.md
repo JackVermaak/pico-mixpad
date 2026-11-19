@@ -80,6 +80,8 @@ lit when it should be off and push current into GP28.
 
 ## Assembly
 
+![The finished hand wiring: every switch and encoder lead runs to the Pico header in the tray](photos/hand-wiring.jpg)
+
 1. **Flash and test the Pico before soldering anything.** Install CircuitPython (see Firmware
    below) and check that the `CIRCUITPY` drive appears.
 2. **Print the parts** (settings and orientation in [case/README.md](../case/README.md)).

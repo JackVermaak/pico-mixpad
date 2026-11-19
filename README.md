@@ -13,9 +13,20 @@ A USB desk controller for Windows audio, built on a Raspberry Pi Pico 2 (RP2350)
 - **Red/green LED**: mic muted / live at a glance.
 - **Settings page**: a local web app to set what every key, knob and the screen do. No firmware editing.
 
-![Pico Mixpad case](case/preview/assembly.png)
+<p align="center">
+  <img src="docs/photos/mixpad-mic-muted.jpg" alt="The finished Pico Mixpad: OLED with app volumes and a MIC MUTED banner, red LED lit, five knobs and eight keys" width="48%">
+  <img src="docs/photos/knob-demo.gif" alt="Turning an app knob: the Discord volume bar on the OLED changes as the knob turns" width="48%">
+</p>
 
 **Status:** v1 (hand-wired, 3D-printed case) is built and in daily use.
+
+## Build photos
+
+| Mic live | Plate with switches and encoders | Hand wiring inside |
+| --- | --- | --- |
+| ![Mic live: green LED lit, OLED shows MIC live](docs/photos/mixpad-mic-live.jpg) | ![Top plate with eight purple MX switches, five EC11 encoders, the OLED and both LEDs, before keycaps](docs/photos/plate-switches-encoders.jpg) | ![Underside of the plate: switches and encoders hand-wired with Dupont jumpers to the Pico in the tray](docs/photos/hand-wiring.jpg) |
+
+The 3D-printed case renders are in [`case/preview/`](case/preview/), e.g. the [assembly](case/preview/assembly.png).
 
 ## How it works
 

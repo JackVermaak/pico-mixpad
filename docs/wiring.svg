@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 830" width="1140" height="830" font-family="Helvetica, Arial, sans-serif">
+<rect width="1140" height="830" fill="#ffffff"/>
+<text x="570" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#111827">Pico Mixpad v1 wiring</text>
+<text x="570" y="66" text-anchor="middle" font-size="13" fill="#4b5563">Every key and encoder pin goes between its GPIO and GND (internal pull-ups, no diodes). Pico 2 shown from above, USB at the top.</text>
+<rect x="400" y="90" width="320" height="560" rx="10" fill="#15803d" stroke="#14532d" stroke-width="2"/>
+<rect x="536.0" y="76" width="48" height="22" rx="3" fill="#9ca3af" stroke="#4b5563"/>
+<text x="560.0" y="380" text-anchor="middle" font-size="18" font-weight="bold" fill="#ecfdf5">Raspberry Pi</text>
+<text x="560.0" y="402" text-anchor="middle" font-size="18" font-weight="bold" fill="#ecfdf5">Pico 2</text>
+<circle cx="414" cy="120" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="124" font-size="11" fill="#ecfdf5">1 GP0</text>
+<line x1="408" y1="120" x2="230" y2="120" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="125" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 1</text>
+<circle cx="414" cy="146" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="150" font-size="11" fill="#ecfdf5">2 GP1</text>
+<line x1="408" y1="146" x2="230" y2="146" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="151" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 2</text>
+<circle cx="414" cy="172" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="176" font-size="11" fill="#ecfdf5">3 GND</text>
+<line x1="408" y1="172" x2="230" y2="172" stroke="#374151" stroke-width="3"/>
+<text x="222" y="177" text-anchor="end" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="414" cy="198" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="202" font-size="11" fill="#ecfdf5">4 GP2</text>
+<line x1="408" y1="198" x2="230" y2="198" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="203" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 3</text>
+<circle cx="414" cy="224" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="228" font-size="11" fill="#ecfdf5">5 GP3</text>
+<line x1="408" y1="224" x2="230" y2="224" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="229" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 4</text>
+<circle cx="414" cy="250" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="254" font-size="11" fill="#ecfdf5">6 GP4</text>
+<line x1="408" y1="250" x2="230" y2="250" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="255" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 5</text>
+<circle cx="414" cy="276" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="280" font-size="11" fill="#ecfdf5">7 GP5</text>
+<line x1="408" y1="276" x2="230" y2="276" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="281" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 6</text>
+<circle cx="414" cy="302" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="306" font-size="11" fill="#ecfdf5">8 GND</text>
+<line x1="408" y1="302" x2="230" y2="302" stroke="#374151" stroke-width="3"/>
+<text x="222" y="307" text-anchor="end" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="414" cy="328" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="332" font-size="11" fill="#ecfdf5">9 GP6</text>
+<line x1="408" y1="328" x2="230" y2="328" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="333" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 7</text>
+<circle cx="414" cy="354" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="358" font-size="11" fill="#ecfdf5">10 GP7</text>
+<line x1="408" y1="354" x2="230" y2="354" stroke="#2563eb" stroke-width="3"/>
+<text x="222" y="359" text-anchor="end" font-size="14" fill="#2563eb" font-weight="600">Key 8</text>
+<circle cx="414" cy="380" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="384" font-size="11" fill="#ecfdf5">11 GP8</text>
+<line x1="408" y1="380" x2="230" y2="380" stroke="#d97706" stroke-width="3"/>
+<text x="222" y="385" text-anchor="end" font-size="14" fill="#d97706" font-weight="600">App knob 1 · A</text>
+<circle cx="414" cy="406" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="410" font-size="11" fill="#ecfdf5">12 GP9</text>
+<line x1="408" y1="406" x2="230" y2="406" stroke="#d97706" stroke-width="3"/>
+<text x="222" y="411" text-anchor="end" font-size="14" fill="#d97706" font-weight="600">App knob 1 · B</text>
+<circle cx="414" cy="432" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="436" font-size="11" fill="#ecfdf5">13 GND</text>
+<line x1="408" y1="432" x2="230" y2="432" stroke="#374151" stroke-width="3"/>
+<text x="222" y="437" text-anchor="end" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="414" cy="458" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="462" font-size="11" fill="#ecfdf5">14 GP10</text>
+<line x1="408" y1="458" x2="230" y2="458" stroke="#d97706" stroke-width="3"/>
+<text x="222" y="463" text-anchor="end" font-size="14" fill="#d97706" font-weight="600">App knob 1 · push</text>
+<circle cx="414" cy="484" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="488" font-size="11" fill="#ecfdf5">15 GP11</text>
+<line x1="408" y1="484" x2="230" y2="484" stroke="#059669" stroke-width="3"/>
+<text x="222" y="489" text-anchor="end" font-size="14" fill="#059669" font-weight="600">App knob 2 · A</text>
+<circle cx="414" cy="510" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="514" font-size="11" fill="#ecfdf5">16 GP12</text>
+<line x1="408" y1="510" x2="230" y2="510" stroke="#059669" stroke-width="3"/>
+<text x="222" y="515" text-anchor="end" font-size="14" fill="#059669" font-weight="600">App knob 2 · B</text>
+<circle cx="414" cy="536" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="540" font-size="11" fill="#ecfdf5">17 GP13</text>
+<line x1="408" y1="536" x2="230" y2="536" stroke="#059669" stroke-width="3"/>
+<text x="222" y="541" text-anchor="end" font-size="14" fill="#059669" font-weight="600">App knob 2 · push</text>
+<circle cx="414" cy="562" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="566" font-size="11" fill="#ecfdf5">18 GND</text>
+<line x1="408" y1="562" x2="230" y2="562" stroke="#374151" stroke-width="3"/>
+<text x="222" y="567" text-anchor="end" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="414" cy="588" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="592" font-size="11" fill="#ecfdf5">19 GP14</text>
+<line x1="408" y1="588" x2="230" y2="588" stroke="#7c3aed" stroke-width="3"/>
+<text x="222" y="593" text-anchor="end" font-size="14" fill="#7c3aed" font-weight="600">App knob 3 · A</text>
+<circle cx="414" cy="614" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="426" y="618" font-size="11" fill="#ecfdf5">20 GP15</text>
+<line x1="408" y1="614" x2="230" y2="614" stroke="#7c3aed" stroke-width="3"/>
+<text x="222" y="619" text-anchor="end" font-size="14" fill="#7c3aed" font-weight="600">App knob 3 · B</text>
+<circle cx="706" cy="120" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="124" text-anchor="end" font-size="11" fill="#ecfdf5">VBUS 40</text>
+<text x="732" y="124" font-size="11" fill="#9ca3af">not used</text>
+<circle cx="706" cy="146" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="150" text-anchor="end" font-size="11" fill="#ecfdf5">VSYS 39</text>
+<text x="732" y="150" font-size="11" fill="#9ca3af">not used</text>
+<circle cx="706" cy="172" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="176" text-anchor="end" font-size="11" fill="#ecfdf5">GND 38</text>
+<line x1="712" y1="172" x2="870" y2="172" stroke="#374151" stroke-width="3"/>
+<text x="878" y="177" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="706" cy="198" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="202" text-anchor="end" font-size="11" fill="#ecfdf5">3V3_EN 37</text>
+<text x="732" y="202" font-size="11" fill="#9ca3af">not used</text>
+<circle cx="706" cy="224" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="228" text-anchor="end" font-size="11" fill="#ecfdf5">3V3(OUT) 36</text>
+<line x1="712" y1="224" x2="870" y2="224" stroke="#b91c1c" stroke-width="3"/>
+<text x="878" y="229" font-size="14" fill="#b91c1c" font-weight="600">OLED VCC + green LED (Y-lead)</text>
+<circle cx="706" cy="250" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="254" text-anchor="end" font-size="11" fill="#ecfdf5">ADC_VREF 35</text>
+<text x="732" y="254" font-size="11" fill="#9ca3af">not used</text>
+<circle cx="706" cy="276" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="280" text-anchor="end" font-size="11" fill="#ecfdf5">GP28 34</text>
+<line x1="712" y1="276" x2="870" y2="276" stroke="#65a30d" stroke-width="3"/>
+<text x="878" y="281" font-size="14" fill="#65a30d" font-weight="600">Mic LEDs (red/green pair)</text>
+<circle cx="706" cy="302" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="306" text-anchor="end" font-size="11" fill="#ecfdf5">AGND 33</text>
+<text x="732" y="306" font-size="11" fill="#9ca3af"></text>
+<circle cx="706" cy="328" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="332" text-anchor="end" font-size="11" fill="#ecfdf5">GP27 32</text>
+<line x1="712" y1="328" x2="870" y2="328" stroke="#0891b2" stroke-width="3"/>
+<text x="878" y="333" font-size="14" fill="#0891b2" font-weight="600">OLED SCL</text>
+<circle cx="706" cy="354" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="358" text-anchor="end" font-size="11" fill="#ecfdf5">GP26 31</text>
+<line x1="712" y1="354" x2="870" y2="354" stroke="#0891b2" stroke-width="3"/>
+<text x="878" y="359" font-size="14" fill="#0891b2" font-weight="600">OLED SDA</text>
+<circle cx="706" cy="380" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="384" text-anchor="end" font-size="11" fill="#ecfdf5">RUN 30</text>
+<text x="732" y="384" font-size="11" fill="#9ca3af">not used</text>
+<circle cx="706" cy="406" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="410" text-anchor="end" font-size="11" fill="#ecfdf5">GP22 29</text>
+<line x1="712" y1="406" x2="870" y2="406" stroke="#dc2626" stroke-width="3"/>
+<text x="878" y="411" font-size="14" fill="#dc2626" font-weight="600">Master knob · push</text>
+<circle cx="706" cy="432" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="436" text-anchor="end" font-size="11" fill="#ecfdf5">GND 28</text>
+<line x1="712" y1="432" x2="870" y2="432" stroke="#374151" stroke-width="3"/>
+<text x="878" y="437" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="706" cy="458" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="462" text-anchor="end" font-size="11" fill="#ecfdf5">GP21 27</text>
+<line x1="712" y1="458" x2="870" y2="458" stroke="#dc2626" stroke-width="3"/>
+<text x="878" y="463" font-size="14" fill="#dc2626" font-weight="600">Master knob · B</text>
+<circle cx="706" cy="484" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="488" text-anchor="end" font-size="11" fill="#ecfdf5">GP20 26</text>
+<line x1="712" y1="484" x2="870" y2="484" stroke="#dc2626" stroke-width="3"/>
+<text x="878" y="489" font-size="14" fill="#dc2626" font-weight="600">Master knob · A</text>
+<circle cx="706" cy="510" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="514" text-anchor="end" font-size="11" fill="#ecfdf5">GP19 25</text>
+<line x1="712" y1="510" x2="870" y2="510" stroke="#db2777" stroke-width="3"/>
+<text x="878" y="515" font-size="14" fill="#db2777" font-weight="600">App knob 4 · push</text>
+<circle cx="706" cy="536" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="540" text-anchor="end" font-size="11" fill="#ecfdf5">GP18 24</text>
+<line x1="712" y1="536" x2="870" y2="536" stroke="#db2777" stroke-width="3"/>
+<text x="878" y="541" font-size="14" fill="#db2777" font-weight="600">App knob 4 · B</text>
+<circle cx="706" cy="562" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="566" text-anchor="end" font-size="11" fill="#ecfdf5">GND 23</text>
+<line x1="712" y1="562" x2="870" y2="562" stroke="#374151" stroke-width="3"/>
+<text x="878" y="567" font-size="14" fill="#374151" font-weight="600">GND bus</text>
+<circle cx="706" cy="588" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="592" text-anchor="end" font-size="11" fill="#ecfdf5">GP17 22</text>
+<line x1="712" y1="588" x2="870" y2="588" stroke="#db2777" stroke-width="3"/>
+<text x="878" y="593" font-size="14" fill="#db2777" font-weight="600">App knob 4 · A</text>
+<circle cx="706" cy="614" r="6" fill="#fbbf24" stroke="#78350f"/>
+<text x="694" y="618" text-anchor="end" font-size="11" fill="#ecfdf5">GP16 21</text>
+<line x1="712" y1="614" x2="870" y2="614" stroke="#7c3aed" stroke-width="3"/>
+<text x="878" y="619" font-size="14" fill="#7c3aed" font-weight="600">App knob 3 · push</text>
+<line x1="40" y1="680" x2="1100" y2="680" stroke="#e5e7eb"/>
+<text x="60" y="710" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">Key switch</text>
+<text x="60" y="732" font-size="13" fill="#111827" font-weight="normal" text-anchor="start">GPIO ── switch ── GND</text>
+<text x="60" y="752" font-size="12" fill="#6b7280" font-weight="normal" text-anchor="start">(pressed = low)</text>
+<text x="330" y="710" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">EC11 encoder</text>
+<text x="330" y="732" font-size="13" fill="#111827" font-weight="normal" text-anchor="start">3-pin side: A · common · B  →  GPIO n, GND, GPIO n+1</text>
+<text x="330" y="752" font-size="13" fill="#111827" font-weight="normal" text-anchor="start">2-pin side: push  →  GPIO n+2 and GND</text>
+<text x="330" y="772" font-size="12" fill="#6b7280" font-weight="normal" text-anchor="start">A and B must be neighbouring GPIO (PIO decoder)</text>
+<text x="760" y="710" font-size="15" fill="#111827" font-weight="bold" text-anchor="start">Mic LEDs on one pin</text>
+<text x="760" y="732" font-size="13" fill="#65a30d" font-weight="normal" text-anchor="start">GP28 → 680 Ω → red LED → GND</text>
+<text x="760" y="752" font-size="13" fill="#65a30d" font-weight="normal" text-anchor="start">3V3 → 560 Ω → green LED → GP28</text>
+<text x="760" y="772" font-size="12" fill="#6b7280" font-weight="normal" text-anchor="start">high = red · low = green · input = off</text>
+<text x="60" y="800" font-size="12" fill="#6b7280" font-weight="normal" text-anchor="start">OLED: wire by the labels on the module (VCC/GND order varies). Power from 3V3, never VBUS.</text>
+</svg>

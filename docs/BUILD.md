@@ -29,6 +29,8 @@ Helpful: a small file and drill bits to tidy printed holes.
 
 ## Pin map
 
+![Wiring diagram](wiring.svg)
+
 Every switch and encoder pin connects between its GPIO and GND. The Pico's internal pull-ups do the
 rest, so there are no matrix diodes or pull-up resistors.
 

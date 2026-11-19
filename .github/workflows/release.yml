@@ -1,0 +1,42 @@
+name: release
+
+# Push a tag like v1.0 to build the zips and publish a GitHub Release.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build zips
+        run: |
+          V="${GITHUB_REF_NAME}"
+          mkdir -p dist
+          # Firmware: copy these to the CIRCUITPY drive
+          mkdir -p "stage/pico-mixpad-firmware-$V"
+          cp firmware/*.py "stage/pico-mixpad-firmware-$V/"
+          cp LICENSE "stage/pico-mixpad-firmware-$V/"
+          # Case: print-ready STLs, the OpenSCAD source and the print guide
+          mkdir -p "stage/pico-mixpad-case-$V"
+          cp case/stl/*.stl case/mixpad_v1.scad case/README.md LICENSE "stage/pico-mixpad-case-$V/"
+          # Host app for Windows (without the unit tests)
+          mkdir -p "stage/pico-mixpad-host-$V"
+          rsync -a --exclude tests --exclude __pycache__ host/ "stage/pico-mixpad-host-$V/"
+          cp LICENSE "stage/pico-mixpad-host-$V/"
+          cd stage
+          for d in */; do zip -qr "../dist/${d%/}.zip" "$d"; done
+          ls -l ../dist
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.zip \
+            --title "Pico Mixpad $GITHUB_REF_NAME" \
+            --notes-file .github/release-notes.md

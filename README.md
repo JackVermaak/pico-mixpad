@@ -1,5 +1,9 @@
 # Pico Mixpad
 
+[![tests](https://github.com/JackVermaak/pico-mixpad/actions/workflows/tests.yml/badge.svg)](https://github.com/JackVermaak/pico-mixpad/actions/workflows/tests.yml)
+[![release](https://img.shields.io/github/v/release/JackVermaak/pico-mixpad)](https://github.com/JackVermaak/pico-mixpad/releases/latest)
+[![licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
+
 A USB desk controller for Windows audio, built on a Raspberry Pi Pico 2 (RP2350):
 
 - **Master knob**: system volume (push = mute). Works with no software installed.
@@ -38,6 +42,8 @@ source of truth: changes made in the Windows Volume Mixer never fight the knobs.
 
 ## Quick start
 
+**No clone needed:** the [latest release](https://github.com/JackVermaak/pico-mixpad/releases/latest) has the firmware, the host app and the print-ready STLs as zip files.
+
 1. Flash CircuitPython 10.x (the "Raspberry Pi Pico 2" build, not Pico 2 W) on the Pico 2, then run `circup install adafruit_hid adafruit_display_text adafruit_displayio_ssd1306`.
 2. Copy `firmware/boot.py`, `firmware/code.py` and `firmware/mixpad_settings.py` to `CIRCUITPY`, then unplug and replug.
 3. On Windows (Python 3.11+): `cd host`, `python -m pip install -r requirements.txt`, then run `python macropad_host.py --settings`.
@@ -46,6 +52,8 @@ source of truth: changes made in the Windows Volume Mixer never fight the knobs.
 The full build, from parts list to testing, is in [docs/BUILD.md](docs/BUILD.md).
 
 ## Pin map
+
+![Wiring diagram](docs/wiring.svg)
 
 | Part | Pins |
 | --- | --- |
@@ -65,15 +73,21 @@ The Pico has a single 3V3 pin, so the green LED and the OLED share it through a 
 
 ## Hardware (v1)
 
-| Part | Item |
-| --- | --- |
-| Microcontroller | Raspberry Pi Pico 2 with headers (RPI-PICO2-H) |
-| Encoders | 5× EC11, 5-pin with push switch, 20 detents, ribbed 6 mm shaft |
-| Display | 0.96″ 128×64 SSD1306 OLED, I²C |
-| Keys | 8× Cherry MX, OEM-profile keycaps |
-| Indicator | Red + green low-current LEDs, 680 Ω + 560 Ω resistors |
-| Wiring | Female–female Dupont jumpers, cut and soldered on the component side; nothing soldered to the Pico |
-| Case | 3D-printed plate + tray, see `case/` |
+Rough prices from AliExpress-type suppliers in 2026 (USD); local shops cost more.
+
+| Part | Item | Approx. price |
+| --- | --- | --- |
+| Microcontroller | Raspberry Pi Pico 2 with headers (RPI-PICO2-H) | $7 |
+| Encoders | 5× EC11, 5-pin with push switch, 20 detents, ribbed 6 mm shaft | $6 (10-pack with knobs) |
+| Display | 0.96″ 128×64 SSD1306 OLED, I²C | $3 |
+| Keys | 8× Cherry MX (or compatible), OEM-profile keycaps | $8 |
+| Indicator | Red + green low-current LEDs, 680 Ω + 560 Ω resistors | $1 |
+| Wiring | Female–female Dupont jumpers, cut and soldered on the component side; nothing soldered to the Pico | $4 |
+| Fixings | 8× M2 self-tapping screws, 4 rubber feet, micro-USB data cable | $4 |
+| Case | 3D-printed plate + tray, about 135 g of PLA/PETG, see `case/` | $3 |
+| | **Total** | **≈ $36** |
+
+The full parts list with quantities and the tools needed is in [docs/BUILD.md](docs/BUILD.md#parts).
 
 ## Settings page
 
@@ -127,7 +141,7 @@ python -m pytest
 ```
 
 The host logic runs against fake serial and audio objects, so the tests pass on any OS without hardware.
-They also run on every push with GitHub Actions.
+They also run on every push with GitHub Actions (with a pyflakes lint of the host and firmware code).
 
 To check the wiring of a finished pad on any computer (macOS, Linux or Windows), run
 `python3 host/wiring_test.py`. It stands in for the PC app with four fake channels, so every knob,

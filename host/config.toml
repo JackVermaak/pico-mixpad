@@ -1,0 +1,37 @@
+# Pico Mixpad host app configuration.
+# Edit here or in the settings page (python macropad_host.py --settings).
+
+# COM port of the macropad's DATA port, e.g. "COM7". "auto" finds it by handshake.
+port = "auto"
+
+# Volume change per knob click, in percent.
+step_percent = 2
+
+# Settings page: http://localhost:<web_port>. pad_drive: the CIRCUITPY drive, or "auto".
+web_port = 8765
+pad_drive = "auto"
+
+# Four app knobs, left to right. "label" is shown on the OLED (first 7 characters).
+# "apps" lists process names as shown in Task Manager > Details, plus these specials:
+#   "@focused"  the app in the foreground window
+#   "@system"   Windows system sounds
+
+[[channel]]
+label = "Game"
+apps = ["cs2.exe"]
+
+[[channel]]
+label = "Discord"
+apps = ["discord.exe"]
+
+[[channel]]
+label = "Browser"
+apps = ["chrome.exe", "firefox.exe", "msedge.exe"]
+
+[[channel]]
+label = "Music"
+apps = ["spotify.exe"]
+
+# What keys set to "Open on PC" open: a program, file, folder or URL.
+# Keys "1"-"8", or "master" for the master knob push.
+[pc_actions]

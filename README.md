@@ -88,7 +88,7 @@ Click a part of the pad to change it:
   playing audio offered as suggestions. Volume step, direction and clicks-per-step.
 - **Master knob**: direction, and what pushing it does (any key action).
 - **Screen**: orientation (flip 180°), where the mic line goes, dimming and sleep times, I²C address.
-- **Mic LED**: off or blinking while the PC app isn't running.
+- **Mic LED**: off or blinking while the PC app is not running.
 - **Rearrange keys & knobs**: match the page to however your pad is wired, either guided (press each
   key and turn each knob when it lights up) or by swapping them by hand. The screen lists the apps
   in the knobs' left-to-right order.
@@ -138,7 +138,7 @@ the mic key, the OLED and the LED respond.
 - **Composite USB device**: keyboard and media keys need no host software; only per-app features do.
 - **Relative encoder steps**: no drift between knob and real volume.
 - **Readable text protocol with handshake + heartbeat**: debuggable in any serial terminal, auto-detects the port.
-- **Hardware-agnostic host logic**: audio backend and serial link are injected, so they're unit-testable.
+- **Hardware-agnostic host logic**: audio backend and serial link are injected, so they are unit-testable.
 - **Two LEDs on one GPIO**: tri-state drive gives red, green and off from a single pin.
 
 ## Related

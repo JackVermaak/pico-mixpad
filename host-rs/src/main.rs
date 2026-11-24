@@ -66,15 +66,24 @@ fn run(config_path: PathBuf, status: Shared) {
     let mut audio = make_audio();
     let mut watcher = config::Watcher::new(&config_path);
     let mut cfg = config::load(&config_path).unwrap_or_default();
+    let mut last_note = String::new();
     loop {
         if let Some(new) = watcher.poll() {
             cfg = new;
         }
-        let Some((port, version)) = serial::find_port(&cfg.port) else {
-            status.lock().connected = false;
-            thread::sleep(Duration::from_secs(3));
-            continue;
+        let (port, version) = match serial::find_port(&cfg.port) {
+            Ok(found) => found,
+            Err(note) => {
+                if note != last_note {
+                    log::info!("{note}"); // logged once per change, not every 3 seconds
+                    last_note = note;
+                }
+                status.lock().connected = false;
+                thread::sleep(Duration::from_secs(3));
+                continue;
+            }
         };
+        last_note.clear();
         let link = match serial::SerialLink::open(&port, serial::READ_TIMEOUT) {
             Ok(l) => l,
             Err(e) => {

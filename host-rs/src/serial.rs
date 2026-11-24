@@ -19,7 +19,9 @@ pub struct SerialLink {
 
 impl SerialLink {
     pub fn open(name: &str, timeout: Duration) -> serialport::Result<Self> {
-        let port = serialport::new(name, BAUD).timeout(timeout).open()?;
+        // DTR must be on: CircuitPython only counts the data port as connected (and only sends on
+        // it) while DTR is set. pyserial sets it by default; serialport on Windows turns it off.
+        let port = serialport::new(name, BAUD).timeout(timeout).dtr_on_open(true).open()?;
         Ok(SerialLink { port, buf: Vec::new() })
     }
 
@@ -73,16 +75,32 @@ fn probe(name: &str) -> Option<String> {
     None
 }
 
-/// (port, firmware version) of the macropad, or None if none was found.
-pub fn find_port(configured: &str) -> Option<(String, Option<String>)> {
-    if !configured.eq_ignore_ascii_case("auto") {
-        return Some((configured.to_string(), None));
+fn describe(p: &serialport::SerialPortInfo) -> String {
+    match &p.port_type {
+        SerialPortType::UsbPort(u) => format!("{} (USB {:04X}:{:04X})", p.port_name, u.vid, u.pid),
+        _ => p.port_name.clone(),
     }
-    let ports = serialport::available_ports().unwrap_or_default();
+}
+
+/// (port, firmware version) of the macropad; Err says what was tried, for the log.
+pub fn find_port(configured: &str) -> Result<(String, Option<String>), String> {
+    if !configured.eq_ignore_ascii_case("auto") {
+        return Ok((configured.to_string(), None));
+    }
+    let ports = serialport::available_ports().map_err(|e| format!("can't list serial ports: {e}"))?;
+    if ports.is_empty() {
+        return Err("no serial ports found: is the pad plugged in?".into());
+    }
     let likely: Vec<&serialport::SerialPortInfo> = ports
         .iter()
         .filter(|p| matches!(&p.port_type, SerialPortType::UsbPort(u) if KNOWN_VIDS.contains(&u.vid)))
         .collect();
     let candidates: Vec<&serialport::SerialPortInfo> = if likely.is_empty() { ports.iter().collect() } else { likely };
-    candidates.into_iter().find_map(|p| probe(&p.port_name).map(|v| (p.port_name.clone(), Some(v))))
+    for p in &candidates {
+        if let Some(v) = probe(&p.port_name) {
+            return Ok((p.port_name.clone(), Some(v)));
+        }
+    }
+    let tried: Vec<String> = candidates.iter().map(|p| describe(p)).collect();
+    Err(format!("no macropad answered on {}", tried.join(", ")))
 }

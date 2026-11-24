@@ -1,0 +1,2 @@
+# The Rust tests compare host/config.toml byte for byte, so keep LF line endings on Windows checkouts too.
+host/config.toml text eol=lf

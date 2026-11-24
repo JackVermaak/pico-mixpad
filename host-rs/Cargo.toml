@@ -1,6 +1,6 @@
 [package]
 name = "pico-mixpad-host"
-version = "2.0.0"
+version = "2.0.1"
 edition = "2021"
 description = "Pico Mixpad host app: per-app volume, mic mute and the settings page, as one small Windows program"
 license = "MIT"

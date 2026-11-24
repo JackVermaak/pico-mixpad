@@ -159,6 +159,11 @@ app shortcuts.
 
 ## Windows host app
 
+**Easiest: the Rust app.** Download `pico-mixpad.exe` (Releases page, or build it from `host-rs/`),
+put it in its own folder and double-click it. It needs no Python, lives in the notification area
+(left-click: settings page, right-click: status and Quit) and keeps `config.toml` next to itself.
+Details in [host-rs/README.md](../host-rs/README.md). The Python version below does the same job.
+
 The host app (`host/`) changes per-app volume, mutes apps and the microphone, and sends the state
 to the OLED once a second. It uses only public Windows audio APIs through
 [pycaw](https://pypi.org/project/pycaw/) and doesn't inject into or hook other processes.
@@ -219,5 +224,5 @@ On a Mac, key 5's Win key arrives as Cmd.
 ## Serial protocol
 
 See the table in the [README](../README.md#serial-protocol). The host logic is covered by unit
-tests in `host/tests/` that run on any OS with fake serial and audio objects:
-`python -m pytest` from the `host` folder.
+tests in `host/tests/` and `host-rs/` that run on any OS with fake serial and audio objects:
+`python -m pytest` from the `host` folder, `cargo test` from `host-rs`.

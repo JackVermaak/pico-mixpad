@@ -9,10 +9,30 @@ permissions:
   contents: write
 
 jobs:
+  windows-app:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: host-rs
+    steps:
+      - uses: actions/checkout@v4
+      - run: cargo test --release
+      - run: cargo build --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pico-mixpad-exe
+          path: host-rs/target/release/pico-mixpad.exe
+
   release:
+    needs: windows-app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: pico-mixpad-exe
+          path: dist
 
       - name: Build zips
         run: |
@@ -25,7 +45,7 @@ jobs:
           # Case: print-ready STLs, the OpenSCAD source and the print guide
           mkdir -p "stage/pico-mixpad-case-$V"
           cp case/stl/*.stl case/mixpad_v1.scad case/README.md LICENSE "stage/pico-mixpad-case-$V/"
-          # Host app for Windows (without the unit tests)
+          # Python host app for Windows (without the unit tests)
           mkdir -p "stage/pico-mixpad-host-$V"
           rsync -a --exclude tests --exclude __pycache__ host/ "stage/pico-mixpad-host-$V/"
           cp LICENSE "stage/pico-mixpad-host-$V/"
@@ -37,6 +57,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/*.zip \
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/pico-mixpad.exe \
             --title "Pico Mixpad $GITHUB_REF_NAME" \
             --notes-file .github/release-notes.md

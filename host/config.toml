@@ -1,5 +1,5 @@
 # Pico Mixpad host app configuration.
-# Edit here or in the settings page (python macropad_host.py --settings).
+# Edit here or in the settings page: http://localhost:8765 while the app runs.
 
 # COM port of the macropad's DATA port, e.g. "COM7". "auto" finds it by handshake.
 port = "auto"

@@ -46,19 +46,22 @@ source of truth: changes made in the Windows Volume Mixer never fight the knobs.
 | Path | Contents |
 | --- | --- |
 | `firmware/` | `boot.py`, `code.py`, `mixpad_settings.py`: CircuitPython 10.x firmware |
-| `host/` | Windows host app with the settings web app, config, unit tests, a cross-platform wiring test |
+| `host-rs/` | Windows app in Rust: one small `.exe` with a tray icon (recommended) |
+| `host/` | The same host app in Python, plus the settings page, unit tests and a cross-platform wiring test |
 | `case/` | 3D-printed case: parametric OpenSCAD source, STLs, print guide |
 | `docs/BUILD.md` | Full build guide: parts, wiring, assembly, firmware, testing |
 | `hardware/` | Placeholder for the v2 KiCad PCB |
 
 ## Quick start
 
-**No clone needed:** the [latest release](https://github.com/JackVermaak/pico-mixpad/releases/latest) has the firmware, the host app and the print-ready STLs as zip files.
+**No clone needed:** the [latest release](https://github.com/JackVermaak/pico-mixpad/releases/latest) has the Windows app (`pico-mixpad.exe`), the firmware, the Python host app and the print-ready STLs.
 
 1. Flash CircuitPython 10.x (the "Raspberry Pi Pico 2" build, not Pico 2 W) on the Pico 2, then run `circup install adafruit_hid adafruit_display_text adafruit_displayio_ssd1306`.
 2. Copy `firmware/boot.py`, `firmware/code.py` and `firmware/mixpad_settings.py` to `CIRCUITPY`, then unplug and replug.
-3. On Windows (Python 3.11+): `cd host`, `python -m pip install -r requirements.txt`, then run `python macropad_host.py --settings`.
-   The settings page opens at http://localhost:8765.
+3. On Windows, run `pico-mixpad.exe` (from Releases, or build it from `host-rs/`, see
+   [host-rs/README.md](host-rs/README.md)). Click its tray icon to open the settings page at
+   http://localhost:8765. Or use the Python version: `cd host`,
+   `python -m pip install -r requirements.txt`, `python macropad_host.py --settings`.
 
 The full build, from parts list to testing, is in [docs/BUILD.md](docs/BUILD.md).
 
@@ -118,7 +121,8 @@ Click a part of the pad to change it:
   key and turn each knob when it lights up) or by swapping them by hand. The screen lists the apps
   in the knobs' left-to-right order.
 
-PC-side settings are saved to `host/config.toml`, which the host app reloads by itself. Pad-side
+PC-side settings are saved to `config.toml` (next to `pico-mixpad.exe`, or in `host/` for the
+Python app), which the host app reloads by itself. Pad-side
 settings are saved as `settings.json` on the `CIRCUITPY` drive; CircuitPython restarts the
 firmware when that file changes, so they apply within a couple of seconds. A missing or broken
 `settings.json` falls back to the defaults in `mixpad_settings.py`.
@@ -149,10 +153,14 @@ The PC sends the full state every second (heartbeat). The pad shows "PC app offl
 ```
 cd host
 python -m pytest
+
+cd host-rs
+cargo test
 ```
 
 The host logic runs against fake serial and audio objects, so the tests pass on any OS without hardware.
-They also run on every push with GitHub Actions (with a pyflakes lint of the host and firmware code).
+They also run on every push with GitHub Actions (with a pyflakes lint of the host and firmware code),
+along with a Windows build of the Rust app.
 
 To check the wiring of a finished pad on any computer (macOS, Linux or Windows), run
 `python3 host/wiring_test.py`. It stands in for the PC app with four fake channels, so every knob,
@@ -174,6 +182,7 @@ used to check that the macropad adds no input lag in games.
 ## Roadmap
 
 - [x] v1: hand-wired prototype, CircuitPython firmware, Python host app, printed case
+- [x] Host app rewritten in Rust: single `.exe`, tray icon, same protocol and settings page
 - [ ] v2: custom KiCad PCB, hot-swap sockets, case designed around the PCB's STEP model
 - [ ] v3: firmware ported to C (Pico SDK + TinyUSB), same protocol
 

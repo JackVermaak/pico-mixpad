@@ -85,7 +85,7 @@ def dump_config(cfg: Config) -> str:
     """config.toml text for a Config (used when the settings page saves)."""
     lines = [
         "# Pico Mixpad host app configuration.",
-        "# Edit here or in the settings page (python macropad_host.py --settings).",
+        "# Edit here or in the settings page: http://localhost:8765 while the app runs.",
         "",
         '# COM port of the macropad\'s DATA port, e.g. "COM7". "auto" finds it by handshake.',
         f"port = {_toml_str(cfg.port)}",

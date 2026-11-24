@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 host/macropad_host.log*
+host-rs/target/
+host-rs/config.toml
+host-rs/macropad_host.log*
